@@ -1,8 +1,13 @@
 const  sequelize = require("./app/models")
 
-console.log(sequelize);
 
-sequelize.Temas.create({
-    name: 'Natal',
+sequelize.Tema.create({
+    nome: 'Natal',
     descricao: 'Temas Natalinos'
+});
+
+sequelize.Midia.create({
+    nome: 'Natal',
+    descricao: 'Temas Natalinos',
+    media_type: 'audio/mpeg'
 });

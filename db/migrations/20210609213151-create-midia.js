@@ -2,7 +2,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Midia', {
-      id: {
+      id_midia: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
