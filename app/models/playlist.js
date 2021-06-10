@@ -15,7 +15,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Playlist.init({
-    id_usuario: DataTypes.INTEGER,
+    id_playlist: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    id_usuario: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Usuarios',
+        key: 'id_usuario'
+      }
+    },
     nome: DataTypes.STRING,
     descricao: DataTypes.STRING
   }, {

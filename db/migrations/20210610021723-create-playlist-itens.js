@@ -1,27 +1,26 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Playlists', {
+    await queryInterface.createTable('PlaylistItens', {
       id_playlist: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id_usuario: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: false,
+        primaryKey: true,
         references: {
-          model: 'Usuarios',
-          key: 'id_usuario'
-        },
-        allowNull: false
+          model: 'Playlists',
+          key: 'id_playlist'
+        }
       },
-      nome: {
-        type: Sequelize.STRING(30),
-        allowNull: false
-      },
-      descricao: {
-        type: Sequelize.STRING(255)
+      id_midia: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: false,
+        primaryKey: true,
+        references: {
+          model: 'Midia',
+          key: 'id_midia'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Playlists');
+    await queryInterface.dropTable('PlaylistItens');
   }
 };
