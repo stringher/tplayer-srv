@@ -1,4 +1,4 @@
-const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem} = require("./app/models")
+const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem, LogonSocial} = require("./app/models")
 
 
 // sequelize.Tema.create({
@@ -52,16 +52,22 @@ const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem} = req
 //     )
 //
 // }
-// b();
+// // b();
+//
+// async function c() {
+//     PlaylistItem.create(
+//         {
+//             id_midia: 1,
+//             id_playlist: 1
+//         }
+//     )
+//
+// }
+// c();
 
-async function c() {
-    PlaylistItem.create(
-        {
-            id_midia: 1,
-            id_playlist: 1
-        }
-    )
-
-}
-c();
-
+LogonSocial.create({
+    id_usuario: 1,
+    rede_social: 'fb',
+    token: '1235-12-12-3-12312351-123124',
+    external_id: '12344'
+})
