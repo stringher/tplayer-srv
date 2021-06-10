@@ -2,18 +2,14 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Tema extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
-      Tema.belongsToMany(models.Midia, {through: models.MidiaTema, targetKey: 'id_midia', foreignKey: 'id_tema'})
+      Tema.Midias = Tema.belongsToMany(models.Midia, {through: models.MidiaTema, targetKey: 'id_midia', foreignKey: 'id_tema'})
     }
   };
+
   Tema.init({
     id_tema: {
       type: DataTypes.INTEGER,
