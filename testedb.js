@@ -1,4 +1,4 @@
-const  {Tema, Midia, MidiaTema, Usuario} = require("./app/models")
+const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist} = require("./app/models")
 
 
 // sequelize.Tema.create({
@@ -22,11 +22,39 @@ const  {Tema, Midia, MidiaTema, Usuario} = require("./app/models")
 // };
 // faz()
 
-Usuario.create({
-    nome: 'luiz',
-    email: 'luiz.alberoni@taking.com.br',
-    senha: '123456',
-    nascimento: new Date(),
-    sexo: 0,
-    idioma: 'ptBR'
-})
+// Usuario.create({
+//     nome: 'luiz',
+//     email: 'luiz.alberoni@taking.com.br',
+//     senha: '123456',
+//     nascimento: new Date(),
+//     sexo: 0,
+//     idioma: 'ptBR'
+// })
+
+// async function a() {
+//     const midia = await Midia.findByPk(1);
+//     const usuario = await Usuario.findByPk(1);
+//
+//     Favorito.create({id_usuario: 1, id_midia: 1})
+// }
+// a()
+
+//
+// async function b() {
+//     const usuario = await Usuario.findByPk(1);
+//
+//     Playlist.create(
+//         {
+//             usuario,
+//             nome: 'Rock anos 70',
+//             descricao: 'OS grandes clássicos'
+//         },{
+//             include: [
+//                 {association: Playlist.Usuario}
+//             ]
+//         }
+//     )
+//
+// }
+// b();
+
