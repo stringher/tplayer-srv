@@ -3,29 +3,35 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Tema extends Model {
+  class MidiaTema extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      Tema.belongsToMany(models.Midia, {through: models.MidiaTema, targetKey: 'id_midia', foreignKey: 'id_tema'})
     }
   };
-  Tema.init({
+  MidiaTema.init({
+    id_midia:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Midia',
+        key: 'id_midia'
+      }
+    },
     id_tema: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    nome: DataTypes.STRING,
-    descricao: DataTypes.STRING
+      references: {
+        model: 'Tema',
+        key: 'id_tema'
+      },
+      primaryKey: true,
+      field: "id_tema"
+    }
   }, {
     sequelize,
-    modelName: 'Tema',
-    tableName: 'Tema'
+    modelName: 'MidiaTema',
   });
-  return Tema;
+  return MidiaTema;
 };
