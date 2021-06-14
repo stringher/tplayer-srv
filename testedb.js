@@ -1,10 +1,12 @@
-const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem, LogonSocial} = require("./app/models")
+const  {
+    Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem, LogonSocial, TituloDestaque
+} = require("./src/models")
 
 
-sequelize.Tema.create({
-    nome: 'Natal',
-    descricao: 'Temas Natalinos'
-});
+// sequelize.Tema.create({
+//     nome: 'Natal',
+//     descricao: 'Temas Natalinos'
+// });
 //
 // sequelize.Midia.create({
 //     nome: 'Natal',
@@ -65,9 +67,13 @@ sequelize.Tema.create({
 // }
 // c();
 
-LogonSocial.create({
-    id_usuario: 1,
-    rede_social: 'fb',
-    token: '1235-12-12-3-12312351-123124',
-    external_id: '12344'
+// LogonSocial.create({
+//     id_usuario: 1,
+//     rede_social: 'fb',
+//     token: '1235-12-12-3-12312351-123124',
+//     external_id: '12344'
+// })
+
+TituloDestaque.create({
+    data_inicio: new Date()
 })
