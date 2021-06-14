@@ -1,5 +1,14 @@
 const  {
-    Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem, LogonSocial, TituloDestaque
+    Favorito,
+    LogonSocial,
+    Midia,
+    MidiaTema,
+    Playlist,
+    PlaylistItem,
+    Tema,
+    TituloDestaque,
+    TituloDestaqueItem,
+    Usuario
 } = require("./src/models")
 
 
@@ -74,6 +83,20 @@ const  {
 //     external_id: '12344'
 // })
 
-TituloDestaque.create({
-    data_inicio: new Date()
-})
+// TituloDestaque.create({
+//     titulo: 'Meu pequeno teste',
+//     data_inicio: new Date()
+// })
+
+// TituloDestaqueItem.create(
+//     {
+//         id_titulo_destaque: 1,
+//         id_midia: 1
+//     }
+// )
+
+// async function loadTituloDestaque() {
+//         const t = await TituloDestaque.findByPk(1, {include: [TituloDestaque.Midias]})
+//         console.log(JSON.stringify(t))
+// }
+// loadTituloDestaque()
