@@ -95,8 +95,8 @@ const  {
 //     }
 // )
 
-// async function loadTituloDestaque() {
-//         const t = await TituloDestaque.findByPk(1, {include: [TituloDestaque.Midias]})
-//         console.log(JSON.stringify(t))
-// }
-// loadTituloDestaque()
+async function loadTituloDestaque() {
+        const t = await TituloDestaque.findByPk(1, {include: [TituloDestaque.Midias]})
+        console.log(JSON.stringify(t))
+}
+loadTituloDestaque()

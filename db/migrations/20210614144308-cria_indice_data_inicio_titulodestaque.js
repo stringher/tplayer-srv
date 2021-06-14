@@ -4,14 +4,14 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addIndex(
         'TitulosDestaque',
-        ['data_inicio']
+        ['titulo']
     )
   },
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeIndex(
         'TitulosDestaque',
-        ['data_inicio']
+        ['titulo']
     );
   }
 };

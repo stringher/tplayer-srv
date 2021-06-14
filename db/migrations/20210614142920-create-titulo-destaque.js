@@ -14,7 +14,8 @@ module.exports = {
       },
       data_inicio: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       createdAt: {
         allowNull: false,
