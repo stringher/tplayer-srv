@@ -9,9 +9,10 @@ git clone https://github.com/RafaelGSantana/Projeto-Capacitacao-Backend.git # Pa
 cd Projeto-Capacitacao-Backend # Para entrar na pasta do projeto
 
 npm install # Para instalar as dependências
+```
+Configure o banco de dados. O arquivo de configuração se encontra em src/config/database.json. Em seguida, roda as mmigrações:
+```bash
+sequelize db:migrate
 
 npm run dev # Para executar a aplicação
 ```
-
-
-
