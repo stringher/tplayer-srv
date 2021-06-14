@@ -1,10 +1,10 @@
 const  {Tema, Midia, MidiaTema, Usuario, Favorito, Playlist, PlaylistItem, LogonSocial} = require("./app/models")
 
 
-// sequelize.Tema.create({
-//     nome: 'Natal',
-//     descricao: 'Temas Natalinos'
-// });
+sequelize.Tema.create({
+    nome: 'Natal',
+    descricao: 'Temas Natalinos'
+});
 //
 // sequelize.Midia.create({
 //     nome: 'Natal',
