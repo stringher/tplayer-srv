@@ -23,6 +23,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('TituloDestaques');
+    await queryInterface.dropTable('TitulosDestaque');
   }
 };
