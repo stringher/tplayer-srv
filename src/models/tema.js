@@ -3,6 +3,7 @@ const {
   Model
 } = require('sequelize');
 
+
 module.exports = (sequelize, DataTypes) => {
   class Tema extends Model {
     static associate(models) {
