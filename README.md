@@ -33,3 +33,10 @@ Configuração de segurança:
 
 No arquivo src/config/config.json, poderá configurar a chave usada na geração do jwt. Aconselhamos a alterar 
 as chaves, especialmente no ambiente de produção, ou, ainda melhor: usar a variável de ambiente **JWT_SECRET**
+
+
+
+Acrescentando novas rotas:
+--------------------------
+
+Exporte no módulo um método que retorna as rotas (express.Router) que serão anexadas à raiz do express.
