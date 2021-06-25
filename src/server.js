@@ -8,13 +8,8 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 
-const tituloDestaqueRoutes = require('./routes/tituloDestaque');
-const listagemTemasRoutes = require('./routes/listagemTemas');
-const usuariosRoutes = require('./routes/usuario.routes')()
-
-app.use('/titulo-destaque', tituloDestaqueRoutes);
-app.use('/listagem-temas', listagemTemasRoutes);
-app.use('/', usuariosRoutes);
+// Adiciona todas as rotas através do script index
+require('./routes/index')(app);
 
 app.get('/', (req, res) => {
     return res.json({Hello: "World!"});

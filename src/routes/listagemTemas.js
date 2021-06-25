@@ -1,7 +1,9 @@
-const express = require('express');
+const {Router} = require('express');
 const listagemTemasController = require('../controllers/listagemTemas');
-const router = express.Router();
 
-router.get('/',listagemTemasController.getAll);
+module.exports = () => {
+    const router = Router();
+    router.get('/listagem-temas', listagemTemasController.getAll);
 
-module.exports = router;
+    return router;
+}

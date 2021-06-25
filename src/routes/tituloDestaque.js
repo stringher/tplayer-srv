@@ -11,24 +11,26 @@ const { valid_tituloDestaque } = require('../validations/tituloDestaque');
 //= ===============================
 
 router.post(
-    '/',  
+    '/titulos-destaque',
     valid_tituloDestaque,
     tituloDestaqueController.create,
 );
 
 router.get(
-    '/:id',
+    '/titulo-destaque/:id',
     tituloDestaqueController.getById
 );
 
 router.get(
-    '/',
+    '/titulos-destaque',
     tituloDestaqueController.getTopByDataInicioDesc
 );
 
 router.delete(
-    '/:id',
+    '/titulo-destaque/:id',
     tituloDestaqueController.destroy
 );
 
-module.exports = router;
+module.exports = () => {
+    return router;
+};
