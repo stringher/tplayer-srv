@@ -1,0 +1,17 @@
+{
+  "development": {
+    "security": {
+      "jtw-secret": "123456"
+    }
+  },
+  "test": {
+    "security": {
+      "jtw-secret": "456123"
+    }
+  },
+  "production": {
+    "security": {
+      "jtw-secret": "v54f62ge4575nbhg4f57cv1xvq34v6b346nSTBY455Y&^$CRT"
+    }
+  }
+}

@@ -26,3 +26,10 @@ DB_HOST | IP ou host do servidor
 DB_DIALECT | Dialeto (postgres/mariadb/mysql/sqlite/mssql)
 
 Obs: Para o projeto, escolhemos o postgres. Ao alterar, lembrar de alterar as dependencias
+
+
+Configuração de segurança:
+--------------------------
+
+No arquivo src/config/config.json, poderá configurar a chave usada na geração do jwt. Aconselhamos a alterar 
+as chaves, especialmente no ambiente de produção, ou, ainda melhor: usar a variável de ambiente **JWT_SECRET**
