@@ -3,7 +3,6 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable({tableName: 'Usuarios', schema: 'player'}, {
       id_usuario: {
-        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -16,7 +15,8 @@ module.exports = {
       email: {
         type: Sequelize.STRING(255),
         length: 255,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       senha: {
         type: Sequelize.STRING(100),
@@ -27,9 +27,7 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       sexo: {
-        type: Sequelize.INTEGER(2),
-        maxValue: 1,
-        minValue: 0
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
