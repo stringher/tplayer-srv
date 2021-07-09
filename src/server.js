@@ -1,3 +1,4 @@
+const initRoutes = require('./routes')
 const express = require('express');
 
 const app = express();
@@ -8,11 +9,9 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 
-const tituloDestaqueRoutes = require('./routes/tituloDestaque');
-const listagemTemasRoutes = require('./routes/listagemTemas');
+// Inicializará todas as rotas, passando o express como parametro
+initRoutes(app);
 
-app.use('/titulo-destaque', tituloDestaqueRoutes);
-app.use('/listagem-temas', listagemTemasRoutes);
 
 app.get('/', (req, res) => {
     return res.json({Hello: "World!"});
