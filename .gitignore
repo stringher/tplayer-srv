@@ -2,3 +2,5 @@
 data
 node_modules
 docs/BancoDeDados.vpp.*
+docs/BancoDeDadosRota66.vpp.*
+docs/.*
