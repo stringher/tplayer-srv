@@ -4,18 +4,26 @@ module.exports = {
         res.json(await Usuario.findAll())
     },
     get: async(req, res) => {
-        const usuario = await Usuario.findByPk(req.params.id)
+        const usuario = await Usuario.findByPk(req.params.id_usuario)
         if (usuario != null) {
             res.json(usuario)
         } else {
             res.sendStatus(204)
         }
     },
-    create: async(req, res) => {
-        res.json( await Usuario.create(req.body) )
+    create: async({body}, res) => {
+        const count = Usuario.count({
+            where: { email: body.email}
+        })
+
+        if (count === 0) {
+            res.json(await Usuario.create(body))
+        } else {
+            res.sendStatus(412)
+        }
     },
     update: async(req, res) => {
-        let usuario = await Usuario.findByPk(req.params.id)
+        let usuario = await Usuario.findByPk(req.params.id_usuario)
         if (usuario == null) {
             res.sendStatus(412)
         } else {
@@ -25,7 +33,7 @@ module.exports = {
         }
     },
     delete: async(req, res) => {
-        const usuario = await Usuario.findByPk( req.params.id )
+        const usuario = await Usuario.findByPk( req.params.id_usuario )
         if (usuario === null) {
             res.sendStatus(412)
         } else {

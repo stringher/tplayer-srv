@@ -1,15 +1,24 @@
 const {Usuario} = require("../models")
-const {hashPassword, validateJwt, createJwt} = require('../utils/security.utils')
+const {hashPassword, validateJwt, createJwt, isRootUser} = require('../utils/security.utils')
 
 module.exports = {
     login: async ({body:{email, senha}}, res) => {
-        const user = await Usuario.findOne({
-            where: { email }
-        })
-        if (user && hashPassword(senha) === user.senha ) {
-            res.json({jwt: createJwt(user)})
+        if (isRootUser(email, senha)){
+            res.json({jwt: createJwt({
+                    id_usuario: -1,
+                    name: 'System Adminstrator',
+                    email,
+                    isAdmin: true
+                })})
         } else {
-            res.sendStatus(401)
+            const user = await Usuario.findOne({
+                where: {email}
+            })
+            if (user && hashPassword(senha) === user.senha) {
+                res.json({jwt: createJwt(user)})
+            } else {
+                res.sendStatus(401)
+            }
         }
     },
 

@@ -39,3 +39,10 @@ do node em utilização: 'development' (default), 'test', 'production'. Havendo 
 
 Para ambiente de produção, é possível alterar a chave sem a necessidade de alterar o arquivo, bastando ajustar a variável
 de ambiente JWT_PASS com o valor pretendido.
+
+## Usuario root
+
+Da mesma forma que as chaves JWT, a configuração pode ser dar através do arquivo `src/config/configuration.js` ou, em 
+produção, através das variáveis:
+* SYSTEM_ROOT_USER
+* SYSTEM_ROOT_PASS
