@@ -1,7 +1,6 @@
 const { createHash } = require("crypto")
 const {decode, sign, verify} = require("jsonwebtoken")
-
-const password = 'Estou bem'
+const password = require("../config/configuration").jwtPass
 
 function createJwt(usuario) {
     return sign({
