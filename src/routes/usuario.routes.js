@@ -1,7 +1,7 @@
 const {Router} = require("express");
 const controller = require("../controllers/usuarios.controller")
-const validators = require("../validators/usuario.validator")
-const transformer = require("../transformers/usuario.transformer")
+const validators = require("../middleware/validators/usuario.validator")
+const transformer = require("../middleware/transformers/usuario.transformer")
 
 module.exports = (express) => {
     const router = new Router();
