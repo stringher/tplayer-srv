@@ -25,7 +25,6 @@ function update({ body: { nome, email, senha, nascimento, sexo} }, res, next, is
     }
     if (typeof(sexo) !== "undefined" && sexo !== null) {
         const vSexo = +sexo;
-        console.log(`sexo: ${vSexo}`)
         if (vSexo < 1 || vSexo > 2)
             erros.sexo = "Valores de sexo inválidos"
     }
@@ -40,8 +39,7 @@ function update({ body: { nome, email, senha, nascimento, sexo} }, res, next, is
             }
         }
     }
-
-    if (erros != { }) {
+    if (Object.keys(erros) > 0) {
         res.statusCode = 400
         res.json(erros)
     } else next();
