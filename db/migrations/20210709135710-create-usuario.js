@@ -41,6 +41,6 @@ module.exports = {
     );
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Usuarios');
+    await queryInterface.dropTable({tableName: 'Usuarios', schema: 'player'});
   }
 };
