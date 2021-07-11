@@ -5,37 +5,45 @@ module.exports = {
       id_usuario: {
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        comment: 'Identificador do registro'
       },
       nome: {
         type: Sequelize.STRING(100),
         length: 100,
-        allowNull: false
+        allowNull: false,
+        comment: 'Nome do Usuário'
       },
       email: {
         type: Sequelize.STRING(255),
         length: 255,
         allowNull: false,
-        unique: true
+        unique: true,
+        comment: 'Email do Usuário'
       },
       senha: {
         type: Sequelize.STRING(100),
         length: 100,
-        allowNull: false
+        allowNull: false,
+        comment: 'Hash da senha'
       },
       nascimento: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
+        comment: 'Data de Nascimento o usuário'
       },
       sexo: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        comment: 'Sexo. 1 = Masculino, 2 = Feminino'
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        comment: 'Data de Criação'
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        comment: 'Data de alteração'
       }
     }
     );

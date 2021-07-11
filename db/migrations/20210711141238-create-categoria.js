@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable({schema:'player', tableName:'Grupos'}, {
-      id_grupo: {
+    await queryInterface.createTable({tableName:'Categorias', schema: 'player'}, {
+      id_categoria: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -12,12 +12,24 @@ module.exports = {
       nome: {
         type: Sequelize.STRING(100),
         allowNull: false,
-        comment: 'Nome do grupo'
+        comment: 'Nome da Categoria'
       },
       ativo: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-        comment: 'Indica se o Registro está ativo'
+        comment: 'Registro está ativo ou não'
+      },
+      id_grupo: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Grupos',
+            schema: 'player'
+          },
+          key: 'id_grupo'
+        },
+        allowNull: false,
+        comment: 'Grupo ao qual pertence'
       },
       createdAt: {
         allowNull: false,
@@ -29,9 +41,10 @@ module.exports = {
         type: Sequelize.DATE,
         comment: 'Data de alteração'
       }
-    }, {});
+    });
   },
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable({schema:'player', tableName:'Grupos'});
+    await queryInterface.dropTable({tableName:'Categorias', schema: 'player'});
   }
 };
