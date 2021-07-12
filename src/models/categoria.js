@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    ordem: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     ativo: {
       type: DataTypes.BOOLEAN,
       allowNull: false

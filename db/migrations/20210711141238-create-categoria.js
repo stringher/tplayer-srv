@@ -14,6 +14,11 @@ module.exports = {
         allowNull: false,
         comment: 'Nome da Categoria'
       },
+      ordem: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        comment: 'Ordem da categoria dentro do grupo'
+      },
       ativo: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
