@@ -9,8 +9,8 @@ module.exports = (express) => {
     route.post("/", adminRole, validator, transformer, controller.create)
     route.put("/:id_grupo", adminRole, validator, transformer, controller.update)
     route.delete("/:id_grupo", adminRole, controller.delete)
-    route.get("/:id_grupo", adminRole, controller.get)
-    route.get("/", adminRole, controller.index)
+    route.get("/:id_grupo", controller.get)
+    route.get("/", controller.index)
 
     express.use("/api/v1/grupos", route)
 }

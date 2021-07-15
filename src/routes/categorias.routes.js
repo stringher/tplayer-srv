@@ -9,8 +9,8 @@ module.exports = (express) => {
     route.post("/:id_grupo/categorias", adminRole, validator, transformer, controller.create)
     route.put("/:id_grupo/categorias/:id_categoria", adminRole, validator, transformer, controller.update)
     route.delete("/:id_grupo/categorias/:id_categoria", adminRole, controller.delete)
-    route.get("/:id_grupo/categorias/:id_categoria", adminRole, controller.get)
-    route.get("/:id_grupo/categorias", adminRole, controller.index)
+    route.get("/:id_grupo/categorias/:id_categoria", controller.get)
+    route.get("/:id_grupo/categorias", controller.index)
 
     express.use("/api/v1/grupos", route)
 }
