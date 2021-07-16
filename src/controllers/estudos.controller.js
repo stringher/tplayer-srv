@@ -36,6 +36,15 @@ module.exports = {
         }
     },
 
+    getAudio: async (req, res) => {
+        const estudo = await Estudo.findByPk(req.params.id_estudo)
+        if (estudo == null) {
+            res.sendStatus(204)
+        } else {
+            res.json(estudo)
+        }
+    },
+
     delete: async(req, res) => {
         const estudo = await Estudo.findByPk(req.params.id_estudo)
         if (estudo == null) {

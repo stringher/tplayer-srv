@@ -34,6 +34,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'media_type'
     },
+    capa: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'cover_file'
+    },
+    coverMediaType: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'cover_media_type'
+    },
     duracao: {
       type: DataTypes.INTEGER,
       allowNull: false

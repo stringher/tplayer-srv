@@ -20,6 +20,7 @@ module.exports = (express) => {
         controller.update)
     route.delete("/:id_grupo/categorias/:id_categoria/estudos/:id_estudo", adminRole, controller.delete)
     route.get("/:id_grupo/categorias/:id_categoria/estudos/:id_estudo", controller.get)
+    route.get("/:id_grupo/categorias/:id_categoria/estudos/:id_estudo/audio", controller.getAudio)
 
     express.use("/api/v1/grupos", route)
 }

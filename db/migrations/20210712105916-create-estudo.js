@@ -12,17 +12,27 @@ module.exports = {
       titulo: {
         type: Sequelize.STRING(255),
         allowNull: false,
-        commnt: 'Titulo do estudo a ser apresentado'
+        comment: 'Titulo do estudo a ser apresentado'
       },
       arquivo: {
         type: Sequelize.STRING(255),
         allowNull: false,
-        commnt: 'Nome do arquivo'
+        comment: 'Nome do arquivo'
       },
       media_type: {
         type: Sequelize.STRING(100),
         allowNull: false,
-        commnt: 'Tipo da midia, vai ser apresentado no content-type da resposta'
+        comment: 'Tipo da midia, vai ser apresentado no content-type da resposta'
+      },
+      cover_file: {
+        type: Sequelize.STRING(255),
+        allowNull: true,
+        comment: 'Nome do arquivo da imagem'
+      },
+      cover_media_type: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+        comment: 'Tipo da midia do arquivo de imagem'
       },
       duracao: {
         type: Sequelize.INTEGER,

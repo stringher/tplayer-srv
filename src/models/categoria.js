@@ -23,6 +23,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    capa: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'cover_file'
+    },
+    coverMediaType: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'cover_media_type'
+    },
     ordem: {
       type: DataTypes.INTEGER,
       allowNull: true

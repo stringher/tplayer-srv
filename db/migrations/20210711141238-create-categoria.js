@@ -14,6 +14,16 @@ module.exports = {
         allowNull: false,
         comment: 'Nome da Categoria'
       },
+      cover_file: {
+        type: Sequelize.STRING(255),
+        allowNull: true,
+        comment: 'Nome do arquivo da imagem'
+      },
+      cover_media_type: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+        comment: 'Tipo da midia do arquivo de imagem'
+      },
       ordem: {
         type: Sequelize.INTEGER,
         allowNull: true,
