@@ -11,17 +11,20 @@ module.exports = {
             res.sendStatus(204)
         }
     },
+
     create: async({body}, res) => {
-        const count = Usuario.count({
+        const count = await Usuario.count({
             where: { email: body.email}
         })
 
         if (count === 0) {
             res.json(await Usuario.create(body))
         } else {
-            res.sendStatus(412)
+            res.statusCode =412
+            res.json({email: 'Ja existe para outro usuario'})
         }
     },
+
     update: async(req, res) => {
         let usuario = await Usuario.findByPk(req.params.id_usuario)
         if (usuario == null) {
