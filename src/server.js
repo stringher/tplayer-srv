@@ -1,5 +1,5 @@
 const express = require('express');
-
+const autenticacao = require('./security/autenticacao')
 const app = express();
 
 app.use(express.urlencoded({
@@ -9,10 +9,14 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 const tituloDestaqueRoutes = require('./routes/tituloDestaque');
-const listagemTemasRoutes = require('./routes/listagemTemas');
+const midiaTemasRoutes = require('./routes/midiaTema');
+const userRoutes = require('./routes/user')
+const temasRoutes = require('./routes/tema')
 
-app.use('/titulo-destaque', tituloDestaqueRoutes);
-app.use('/listagem-temas', listagemTemasRoutes);
+app.use('/titulo-destaque', autenticacao, tituloDestaqueRoutes);
+app.use('/midia-temas', autenticacao, midiaTemasRoutes);
+app.use('/temas', autenticacao, temasRoutes )
+app.use('/usuario', userRoutes)
 
 app.get('/', (req, res) => {
     return res.json({Hello: "World!"});

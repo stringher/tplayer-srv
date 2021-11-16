@@ -10,7 +10,8 @@ module.exports = {
         references: {
           model: 'Midia',
           key: 'id_midia'
-        }
+        },
+        onDelete: 'cascade'
   },
       id_tema: {
         type: Sequelize.INTEGER,
@@ -20,7 +21,8 @@ module.exports = {
         references: {
           model: 'Tema',
           key: 'id_tema'
-        }
+        },
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,

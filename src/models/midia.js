@@ -6,7 +6,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Midia extends Model {
     static associate(models) {
-      Midia.Temas = Midia.belongsToMany(models.Tema, {through: models.MidiaTema, targetKey: 'id_tema', foreignKey: 'id_midia'})
+      Midia.Temas = Midia.belongsToMany(models.Tema, {through: models.MidiaTema, targetKey: 'id_tema', foreignKey: 'id_midia', onDelete: 'cascade'})
       Midia.TitulosDestaque = Midia.belongsToMany(models.TituloDestaque, {through: models.TituloDestaqueItem, foreignKey: 'id_midia', targetKey:'id_titulo_destaque'});
     }
   };
