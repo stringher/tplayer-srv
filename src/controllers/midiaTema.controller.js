@@ -11,7 +11,7 @@ const addTemaMidia = async (request,response) => { // Adicionar um tema para uma
             id_tema: request.body.id_tema
         });
 
-        return response.status(200).json({status: true, message: "Tema adicionado à mídia com sucesso"});
+        return response.status(201).json({status: true, message: "Tema adicionado à mídia com sucesso"});
     } catch(error) {
         return response.status(400).json({ error: true, errorMessage: error.message })
     }
@@ -42,7 +42,10 @@ const getAll = async (request, response) => { // Listar todos os aúdios por tem
                 include: [
                     {
                         model: Midia,
-                        attributes: ['id_midia', 'nome', 'media_type']
+                        attributes: ['id_midia', 'nome', 'media_type'],
+                        through: {
+                            attributes: [],
+                        }
                     }
                 ]
             });
@@ -72,7 +75,10 @@ const getById = async (request, response) => { // Listar aúdios por temas
                 include: [
                     {
                         model: Midia,
-                        attributes: ['id_midia', 'nome', 'media_type']
+                        attributes: ['id_midia', 'nome', 'media_type'],
+                        through: {
+                            attributes: [],
+                        }
                     }
                 ]
             });
