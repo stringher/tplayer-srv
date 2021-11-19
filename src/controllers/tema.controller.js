@@ -1,38 +1,5 @@
 const { Tema } = require('../models')
 
-const criaTema = async (request,response) => {
-
-    const { nome, descricao } = request.body
-
-    const listaTemas = await Tema.findAll()
-    //console.log(Object.keys(listaTemas).length)
-
-    const qtdTemas = Object.keys(listaTemas).length
-
-    if(!(nome && descricao)) {
-        response.status(400).send("Preencha os campos corretamente!")
-    }
-
-    if(qtdTemas < 9) {
-
-        try {
-            const gravaTema = await Tema.create({
-                nome,
-                descricao
-            })
-    
-            response.status(201).send("Tema criado com sucesso")
-    
-        } catch (err) {
-            response.status(500).send("Erro ao criar tema")
-        }
-
-    } else {
-        response.status(403).send("Não é permitido cadastrar mais de 9 temas")
-    }
-        
-}
-
 const listagemTemas = async (request,response) => {
 
     try {
@@ -80,4 +47,5 @@ const apagaTema = async (request,response) => {
         
 }
 
-module.exports = { criaTema, listagemTemas, apagaTema }
+module.exports = { listagemTemas, apagaTema }
+//criaTema
