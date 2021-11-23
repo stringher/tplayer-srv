@@ -14,12 +14,16 @@ const userRoutes = require('./routes/user')
 const temasRoutes = require('./routes/tema')
 const playlistRoutes = require('./routes/playlist')
 const favoritoRoutes = require('./routes/favorito')
+const midiaRoutes = require ('./routes/midia')
+const playlistItensRoutes = require ('./routes/playlistItens')
 
 app.use('/titulo-destaque', autenticacao, tituloDestaqueRoutes)
 app.use('/midia-temas', midiaTemasRoutes)
 app.use('/temas', temasRoutes )
 app.use('/playlist', playlistRoutes)
 app.use('/favorito', favoritoRoutes)
+app.use('/midia' , midiaRoutes)
+app.use('/playlistitens' , playlistItensRoutes)
 app.use('/usuario', userRoutes)
 
 app.get('/', (req, res) => {
