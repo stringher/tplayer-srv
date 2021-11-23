@@ -4,5 +4,4 @@ const router = express.Router();
 
 router.get('/', midiaController.listagemMidias)
 
-
 module.exports = router;

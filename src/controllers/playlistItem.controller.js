@@ -1,9 +1,8 @@
-//Controller Para Adicionar Midias em uma Playlist e Listagem
 const { PlaylistItem } = require('../models');
 const { Midia } = require ('../models');
 const { Playlist } = require ('../models');
 
-const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a uma Playslist
+const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a uma Playslist de um usuário
 
     try {
         const insereMidiaPlaylist = await PlaylistItem.create({
@@ -18,7 +17,7 @@ const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a 
 };
 
 
-const getById = async (request, response) => { // Listar mídias por temas
+const getById = async (request, response) => { // Listar mídias por Playlists
 
     try {
         const listagemPlaylistId = await Playlist.findByPk(request.params.id,

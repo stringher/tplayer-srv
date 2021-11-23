@@ -22,8 +22,8 @@ app.use('/midia-temas', midiaTemasRoutes)
 app.use('/temas', temasRoutes )
 app.use('/playlist', playlistRoutes)
 app.use('/favorito', favoritoRoutes)
-app.use('/midia' , midiaRoutes)
-app.use('/playlistitens' , playlistItensRoutes)
+app.use('/midia', midiaRoutes)
+app.use('/playlistitens', playlistItensRoutes)
 app.use('/usuario', userRoutes)
 
 app.get('/', (req, res) => {

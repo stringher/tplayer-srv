@@ -1,7 +1,6 @@
-//Controller para Upload de Midias e Listagem de Midias
 const { Midia } = require('../models')
 
-const listagemMidias = async (request,response) => {
+const listagemMidias = async (request, response) => {
 
     try {
         
