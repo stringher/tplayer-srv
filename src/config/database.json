@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "xD@p9425",
-    "database": "rota66",
+    "database": "rota66_bd",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

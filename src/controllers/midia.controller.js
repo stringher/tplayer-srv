@@ -1,6 +1,6 @@
 const { Midia } = require('../models')
 
-const listagemMidias = async (request, response) => {
+const listagemMidias = async (request,response) => {
 
     try {
         
@@ -17,4 +17,25 @@ const listagemMidias = async (request, response) => {
     }
 
 }
-module.exports = { listagemMidias };
+
+const listagemMidiasById = async (request,response) => {
+
+    id = request.params.id
+
+    try {
+
+        const listagemMidias = await Midia.findByPk(id)
+
+        if(!listagemMidias) {
+            response.status(404).send(`Não foi encontrada mídia com o ID: ${id}`)
+        } else {
+            response.status(200).send(listagemMidias)
+        }
+
+    } catch(err) {
+        response.status(500).send("Erro ao localizar mídia")
+    }
+
+}
+
+module.exports = { listagemMidias, listagemMidiasById };
