@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     nome: DataTypes.STRING,
-    descricao: DataTypes.STRING
+    descricao: DataTypes.STRING,
+    status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Tema',
