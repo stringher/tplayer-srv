@@ -1,9 +1,8 @@
-//Controller Para Adicionar Midias em uma Playlist e Listagem
 const { PlaylistItem } = require('../models');
 const { Midia } = require ('../models');
 const { Playlist } = require ('../models');
 
-const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a uma Playslist
+const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a uma Playslist de um usuário
 
     try {
         const insereMidiaPlaylist = await PlaylistItem.create({
@@ -11,14 +10,14 @@ const addMidiaPlaylist = async (request,response) => { // Adicionar uma Midia a 
             id_midia: request.body.id_midia
         });
 
-        return response.status(201).json({status: true, message: "Midia adicionada com sucesso"});
+        return response.status(201).json({status: true, message: "Midia adicionada a playlist com sucesso"});
     } catch(error) {
         return response.status(400).json({ error: true, errorMessage: error.message })
     }
 };
 
 
-const getById = async (request, response) => { // Listar mídias por temas
+const getById = async (request, response) => { // Listar mídias por Playlists
 
     try {
         const listagemPlaylistId = await Playlist.findByPk(request.params.id,
@@ -51,5 +50,23 @@ const getById = async (request, response) => { // Listar mídias por temas
     }
 };
 
-module.exports = { addMidiaPlaylist, getById }
+const deletePlaylistItem = async(request,response) => { // Deletar mídia de uma playlist
+
+    try {
+
+        const deletaItemPlaylist = await PlaylistItem.destroy({ where: {
+            id_playlist: request.body.id_playlist,
+            id_midia: request.body.id_midia
+        }
+        });
+
+        return response.status(200).send("Mídia removida da Playlist")
+
+    } catch (error) {
+        return response.status(400).json({ error: true, errorMessage: error.message })
+    }
+
+}
+
+module.exports = { addMidiaPlaylist, getById, deletePlaylistItem }
 

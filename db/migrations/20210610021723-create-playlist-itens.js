@@ -10,7 +10,8 @@ module.exports = {
         references: {
           model: 'Playlists',
           key: 'id_playlist'
-        }
+        },
+        onDelete: 'cascade'
       },
       id_midia: {
         type: Sequelize.INTEGER,
@@ -20,7 +21,8 @@ module.exports = {
         references: {
           model: 'Midia',
           key: 'id_midia'
-        }
+        },
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,
