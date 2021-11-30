@@ -2,48 +2,49 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('midia_capitulos', {
+      
       id_midia_cap: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id_midia: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Midia',
-          key: 'id_midia'
+          allowNull: true,
+          autoIncrement: true,
+          primaryKey: true,
+          type: Sequelize.INTEGER
         },
-        onDelete: 'cascade'
-      },
-      id_livro: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Livros',
-          key: 'id_livro'
+        id_livro: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: false,
+          primaryKey: true,
+          references: {
+            model: 'Livros',
+            key: 'id_livro'
+          },
+          onDelete: 'cascade'
         },
-        onDelete: 'cascade'
-      },
-      id_cap: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Capitulo',
-          key: 'id_cap'
+        id_cap: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: false,
+          primaryKey: true,
+          references: {
+            model: 'Capitulo',
+            key: 'id_cap'
+          },
+          onDelete: 'cascade'
         },
-        onDelete: 'cascade'
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+        id_midia: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: false,
+          primaryKey: true,
+          references: {
+            model: 'Midia',
+            key: 'id_midia'
+          },
+          onDelete: 'cascade'
+        }
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('midia_capitulos');
   }
 };
-

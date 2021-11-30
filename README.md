@@ -18,6 +18,8 @@ npm run dev # Para executar a aplicação
 ```
 
 ## Banco de dados
+**Registros
+**Para Inserir os Registros da Tabela Livros, Utilize o arquivo Inserts-livros.sql em tplayer-srv/db e então em seu Client de Mysql, rode o scrip após a criação das Tabelas.**
 
 Para auxiliar no desenvolvimento, foi criado um docker-compose file, que erguerã na porta padrão do Postgres (5432), a
 última versão do postgres, além de uma versão do pgAdmin4 para a visualização/manipulação dos dados. Para acessá-lo, utilize
