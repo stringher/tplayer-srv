@@ -2,22 +2,6 @@ const { Midia } = require('../models');
 const { Tema } = require('../models');
 const { MidiaTema } = require('../models');
 
-/*
-const addTemaMidia = async (request,response) => { // Adicionar uma mídia para um tema
-
-    try {
-        const insereTemaMidia = await MidiaTema.create({
-            id_midia: request.body.id_midia,
-            id_tema: request.body.id_tema
-        });
-
-        return response.status(201).json({status: true, message: "Tema adicionado à mídia com sucesso"});
-    } catch(error) {
-        return response.status(400).json({ error: true, errorMessage: error.message })
-    }
-};
-*/
-
 const createTemaMidia = async (request,response) => { // Criação de um tema com mídias selecionadas no dropdown (id_midia vem como array)
 
     const { nome, descricao, id_midia } = request.body
@@ -103,7 +87,7 @@ const getAll = async (request, response) => { // Listar todos os temas e suas m�
             listagemAudioTema
         }
 
-        return response.status(200).json(responseListagemAudioTemas);
+        return response.status(200).json(listagemAudioTema);
     } catch (error) {
         return response.status(400).json({ error: true, errorMessage: error.message })
     }

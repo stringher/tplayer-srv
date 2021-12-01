@@ -5,11 +5,19 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class midia_capitulos extends Model {
-    static associate({Midia, Capitulo, Livros}) {
+    static associate(models) {
+      
+     /*
+      midia_capitulos.Midias = midia_capitulos.belongsTo(models.Midia, {through: models.midia_capitulos, targetKey: 'id_midia', foreignKey:'id_midia'})
+      midia_capitulos.Livro = midia_capitulos.belongsTo(models.Livros, {through: models.midia_capitulos, targetKey: 'id_livro', foreignKey: 'id_livro', onDelete: 'cascade'})
+      midia_capitulos.Capitulo = midia_capitulos.belongsTo(models.Capitulos , {through: models.midia_capitulos, targetKey: 'id_cap', foreignKey: 'id_cap', onDelete: 'cascade'})
+      */
+     
+     /* 
       Midia.Livros = Midia.belongsToMany(Capitulo, { through: midia_capitulos, foreignKey: 'id_cap', targetKey: 'id_cap'})
       Capitulo.Midia = Capitulo.belongsToMany(Midia, { through: midia_capitulos, foreignKey: 'id_midia', targetKey: 'id_midia'})
       Midia.Capitulo = Midia.belongsToMany(Capitulo, { through: midia_capitulos, foreignKey: 'id_cap', targetKey: 'id_cap'})
-      
+      */
     }
   };
 
@@ -28,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       primaryKey: true,
       references: {
-        model: 'Capitulo',
+        model: 'Capitulos',
         key: 'id_cap'
       }
     },

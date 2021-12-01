@@ -4,11 +4,11 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class admin extends Model {
+  class administradores extends Model {
     static associate({Tema}) {
     }
   };
-  admin.init({
+  administradores.init({
     id_admin: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     idioma: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'admin',
+    modelName: 'administradores',
   });
-  return admin;
+  return administradores;
 };
 
 

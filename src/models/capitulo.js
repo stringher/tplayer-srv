@@ -3,12 +3,13 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Capitulo extends Model {
+  class Capitulos extends Model {
      static associate(models) {
-      
-    }
+       Capitulos.Livro = Capitulos.belongsToMany(models.Livros, {through: models.midia_capitulos, targetKey: 'id_livro', foreignKey: 'id_cap', onDelete: 'cascade'})
+       Capitulos.Midias = Capitulos.belongsToMany(models.Midia, {through: models.midia_capitulos, targetKey: 'id_midia', foreignKey: 'id_cap', onDelete: 'cascade'})
+      }
   };
-  Capitulo.init({
+  Capitulos.init({
     id_cap: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -19,10 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     desc_cap: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Capitulo',
+    modelName: 'Capitulos',
     
   });
-  return Capitulo;
+  return Capitulos;
 };
 
 

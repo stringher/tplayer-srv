@@ -18,6 +18,67 @@ const listagemTemas = async (request,response) => {
 
 }
 
+const atualizaStatusTema = async (request,response) => {
+
+    const { id_tema } = request.body
+
+    try {
+
+        const getTemaStatus = await Tema.findOne({ where: {
+            id_tema: id_tema
+            }
+        })
+
+        const statusTema = getTemaStatus.status
+
+        if (statusTema == 0) {
+
+            const ativaTema = await Tema.update({status:1}, {
+                where: {
+                    id_tema: id_tema
+                }
+            })
+
+            return response.status(200).send("Tema ativado")
+        
+        } else {
+
+            const desativaTema = await Tema.update({status:0}, {
+                where: {
+                    id_tema: id_tema
+                }
+            })
+
+            return response.status(200).send("Tema desativado")
+        }
+
+    } catch (err) {
+        return response.status(500).send("Erro interno")
+    }
+
+}
+
+const listagemTemasAtivos = async (request,response) => {
+    
+    try {
+
+        const buscaTemasAtivos = await Tema.findAll({ where: {
+            status: "1"
+        }}
+        )
+
+        if (buscaTemasAtivos == null) {
+            return response.status(200).send("Nenhum tema ativo no momento")
+        
+        } else {
+            return response.status(200).send(buscaTemasAtivos)
+        }
+
+    } catch (err) {
+        return response.status(500).send("Erro interno")
+    }
+}
+
 const apagaTema = async (request,response) => {
     
     try {
@@ -47,5 +108,4 @@ const apagaTema = async (request,response) => {
         
 }
 
-module.exports = { listagemTemas, apagaTema }
-//criaTema
+module.exports = { listagemTemas, atualizaStatusTema, listagemTemasAtivos, apagaTema }

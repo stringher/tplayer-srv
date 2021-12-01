@@ -26,7 +26,7 @@ module.exports = {
           autoIncrement: false,
           primaryKey: true,
           references: {
-            model: 'Capitulo',
+            model: 'Capitulos',
             key: 'id_cap'
           },
           onDelete: 'cascade'
@@ -41,6 +41,14 @@ module.exports = {
             key: 'id_midia'
           },
           onDelete: 'cascade'
+        },
+        createdAt: {
+          allowNull: false,
+          type: Sequelize.DATE
+        },
+        updatedAt: {
+          allowNull: false,
+          type: Sequelize.DATE
         }
     });
   },
