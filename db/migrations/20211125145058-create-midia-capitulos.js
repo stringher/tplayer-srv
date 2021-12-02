@@ -9,17 +9,7 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER
         },
-        id_livro: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          autoIncrement: false,
-          primaryKey: true,
-          references: {
-            model: 'Livros',
-            key: 'id_livro'
-          },
-          onDelete: 'cascade'
-        },
+       
         id_cap: {
           type: Sequelize.INTEGER,
           allowNull: false,

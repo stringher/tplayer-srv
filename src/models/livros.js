@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     nome_livro: DataTypes.STRING,
-    desc_livro: DataTypes.STRING,
     testamento: DataTypes.STRING
   }, {
     sequelize,

@@ -11,10 +11,7 @@ module.exports = {
       nome_livro: {
         type: Sequelize.STRING(100)
       },
-      desc_livro: {
-        type: Sequelize.STRING(300)
-      },
-      testamento: {
+       testamento: {
         type: Sequelize.STRING(300)
       },
       createdAt: {

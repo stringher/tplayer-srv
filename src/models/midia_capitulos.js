@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   midia_capitulos.init({
+    id_midia_cap: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     id_midia: {
       type:DataTypes.INTEGER,
       allowNull: false,
@@ -39,16 +44,8 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Capitulos',
         key: 'id_cap'
       }
-    },
-    id_livro: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'Livros',
-        key: 'id_livro'
-      }
     }
+    
   }, {
     sequelize,
     modelName: 'midia_capitulos',

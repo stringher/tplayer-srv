@@ -16,8 +16,21 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true
     },
-    nome_cap: DataTypes.STRING,
-    desc_cap: DataTypes.STRING
+    num_cap: DataTypes.INTEGER,
+    titulo_cap: DataTypes.STRING,
+    desc_cap: DataTypes.STRING,
+  
+    id_livro: {
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'Livros',
+        key: 'id_livro'
+      }
+    }
+
+
   }, {
     sequelize,
     modelName: 'Capitulos',
