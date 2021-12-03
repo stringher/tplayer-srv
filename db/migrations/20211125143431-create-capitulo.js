@@ -6,7 +6,20 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        unique: true,
         type: Sequelize.INTEGER
+      },
+      id_livro: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: false,
+        primaryKey: true,
+        unique: false,
+        references: {
+          model: 'Livros',
+          key: 'id_livro'
+        },
+        onDelete: 'cascade'
       },
       num_cap: {
         type: Sequelize.INTEGER
@@ -16,17 +29,6 @@ module.exports = {
       },
       desc_cap: {
         type: Sequelize.STRING(200)
-      },
-      id_livro: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        autoIncrement: false,
-        primaryKey: true,
-        references: {
-          model: 'Livros',
-          key: 'id_livro'
-        },
-        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,

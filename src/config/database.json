@@ -1,11 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "xdsantos",
-    "database": "rota66_app",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 8080
+    "username": "postgres",
+    "password": "xD@p9425",
+    "database": "rota66",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

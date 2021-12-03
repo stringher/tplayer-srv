@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Capitulos extends Model {
      static associate(models) {
-       Capitulos.Livro = Capitulos.belongsToMany(models.Livros, {through: models.midia_capitulos, targetKey: 'id_livro', foreignKey: 'id_cap', onDelete: 'cascade'})
+       //Capitulos.Livro = Capitulos.belongsToMany(models.Livros, {through: models.midia_capitulos, targetKey: 'id_livro', foreignKey: 'id_cap', onDelete: 'cascade'})
        Capitulos.Midias = Capitulos.belongsToMany(models.Midia, {through: models.midia_capitulos, targetKey: 'id_midia', foreignKey: 'id_cap', onDelete: 'cascade'})
       }
   };
@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      unique: true,
       references: {
         model: 'Livros',
         key: 'id_livro'

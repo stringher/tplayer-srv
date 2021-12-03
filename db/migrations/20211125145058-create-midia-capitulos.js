@@ -15,6 +15,7 @@ module.exports = {
           allowNull: false,
           autoIncrement: false,
           primaryKey: true,
+          unique: false,
           references: {
             model: 'Capitulos',
             key: 'id_cap'
