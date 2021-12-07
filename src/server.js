@@ -1,11 +1,13 @@
 const express = require('express');
 const autenticacao = require('./security/autenticacao')
 const app = express();
+const cors = require('cors');
 
 app.use(express.urlencoded({
     extended: true
 }));
 
+app.use(cors());
 app.use(express.json());
 
 const tituloDestaqueRoutes = require('./routes/tituloDestaque')
