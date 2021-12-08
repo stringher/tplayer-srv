@@ -101,7 +101,7 @@ const getById = async (request, response) => { // Listar mídias por temas
                 include: [
                     {
                         model: Midia,
-                        attributes: ['id_midia', 'nome', 'media_type'],
+                        attributes: ['id_midia', 'nome'],
                         through: {
                             attributes: [],
                         }

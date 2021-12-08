@@ -20,8 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
-    nome: DataTypes.STRING,
-    media_type: DataTypes.STRING
+    nome: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Midia',

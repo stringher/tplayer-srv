@@ -5,13 +5,12 @@ const { Capitulos } = require('../models')
 
 const uploadMidia = async (request,response) => {
 
-    const { nome, media_type, id_cap } = request.body
+    const { nome, id_cap } = request.body
 
     try {
 
         const criaMidia = await Midia.create({
-            nome,
-            media_type,
+            nome
         })
 
         const id_midia = criaMidia.id_midia
