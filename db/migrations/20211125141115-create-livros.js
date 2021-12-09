@@ -14,14 +14,6 @@ module.exports = {
       },
        testamento: {
         type: Sequelize.STRING(300)
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },
