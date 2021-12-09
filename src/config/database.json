@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "rota66",
-    "host": "database-rota.cobts6dfcdsv.us-east-2.rds.amazonaws.com",
-    "port": "5432",
-    "dialect": "postgres"
+    "username": "admin",
+    "password": "admin1234",
+    "database": "rota",
+    "host": "database-rota66.cobts6dfcdsv.us-east-2.rds.amazonaws.com",
+    "port": "3306",
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
