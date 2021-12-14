@@ -39,12 +39,19 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2.5.0
+    - name: Deploy to App Runner
+      id: deploy-apprunner
+      uses: awslabs/amazon-app-runner-deploy@main        
       with:
-        node-version: '16.13.0'
-        
-    - name: npm install, build and test
-      run: |
-        npm install
-        npm run dev
+          service: app-runner-image-deploy-service
+          image: ${{ steps.build-image.outputs.image }}          
+          access-role-arn: ${{ secrets.ROLE_ARN }}
+          runtime: NODEJS_12          
+          region: ${{ secrets.AWS_REGION }}
+          cpu : 1
+          memory : 2
+          port: 8080
+          wait-for-service-stability: true      
+    
+    - name: App Runner output
+      run: echo "App runner output ${{ steps.deploy-apprunner.outputs.service-id }}"
