@@ -38,3 +38,14 @@ jobs:
         echo "Pushing image to ECR..."
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.5.0
+      with:
+        node-version: '16.13.0'
+        
+    - name: npm install, build and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
