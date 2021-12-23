@@ -15,6 +15,9 @@ module.exports = {
        testamento: {
         type: Sequelize.STRING(300)
       },
+       cod_testamento: {
+         type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
