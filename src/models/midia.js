@@ -15,24 +15,17 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Midia.init({
-    id_midia: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    nome: DataTypes.STRING
-  }, 
-  
-  {
-    id_Streaming: DataTypes.STRING
-  },
-
-  {
-    small_description: DataTypes.STRING
-  },
-  {
-    sequelize,
-    modelName: 'Midia',
-  });
-  return Midia;
+id_midia: {
+type: DataTypes.INTEGER,
+autoIncrement: true,
+primaryKey: true
+},
+nome: DataTypes.STRING,
+id_Streaming: DataTypes.STRING,
+small_description: DataTypes.STRING,
+}, {
+sequelize,
+modelName: 'Midia',
+});
+return Midia;
 };
