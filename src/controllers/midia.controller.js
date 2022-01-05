@@ -39,7 +39,7 @@ const getLivroCapMidia = async (request,response) => {
             include: [
                 {
                     model: Midia,
-                    attributes: ['id_midia', 'nome', 'media_type'],
+                    attributes: ['id_midia', 'nome', 'id_Streaming','small_description','time_duration'],
                     through: {
                         attributes: []
                     }
@@ -61,14 +61,14 @@ const getMidiaCap = async (request,response) => {
     
     try {
 
-        const findMidas = await Capitulos.findOne({ where: {
+        const findMidias = await Capitulos.findOne({ where: {
             id_cap: id_cap
         },
             attributes: ['id_cap','num_cap','titulo_cap'],
             include: [
                 {
                     model: Midia,
-                    attributes: ['id_midia', 'nome', 'id_Streaming','small_description','time_duration' ],
+                    attributes: ['id_midia', 'nome', 'id_Streaming','small_description','time_duration'],
                     through: {
                         attributes: []
                     }
@@ -76,7 +76,13 @@ const getMidiaCap = async (request,response) => {
             ]
         })
 
-        return response.status(200).send(findMidas)
+        const midiasCap = findMidias.Midia
+
+        if (midiasCap.length == 0) {
+            return response.status(404).send("Nenhuma mídia encontrada")
+        } 
+
+        return response.status(200).send(findMidias)
 
     } catch (err) {
         return response.status(500).send("Erro interno")
