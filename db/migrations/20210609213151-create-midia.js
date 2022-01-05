@@ -6,8 +6,11 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'cascade'
+        
       },
+      
       nome: {
         allowNull: false,
         type: Sequelize.STRING(100)
@@ -20,7 +23,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING(255)
       },
-      time: {
+      time_duration: {
       allowNull: false,
       type: Sequelize.STRING(100)
        },
