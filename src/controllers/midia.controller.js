@@ -86,7 +86,7 @@ const getMidiaCap = async (request,response) => {
 
 const deleteMidiaLivCap = async (request,response) => {
 
-    const { id_midia, id_cap, id_livro } = request.body
+    const { id_midia, id_cap } = request.body
 
     try {
 
