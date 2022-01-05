@@ -23,6 +23,7 @@ primaryKey: true
 nome: DataTypes.STRING,
 id_Streaming: DataTypes.STRING,
 small_description: DataTypes.STRING,
+time: DataTypes.STRING,
 }, {
 sequelize,
 modelName: 'Midia',
