@@ -64,11 +64,11 @@ const getMidiaCap = async (request,response) => {
         const findMidas = await Capitulos.findOne({ where: {
             id_cap: id_cap
         },
-            attributes: ['id_cap','num_cap','titulo_cap','desc_cap'],
+            attributes: ['id_cap','num_cap','titulo_cap'],
             include: [
                 {
                     model: Midia,
-                    attributes: ['id_midia', 'nome', 'media_type'],
+                    attributes: ['id_midia', 'nome', 'id_Streaming','small_description','time_duration' ],
                     through: {
                         attributes: []
                     }
