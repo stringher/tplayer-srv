@@ -96,7 +96,7 @@ const apagaTema = async (request,response) => {
      /*   
         const deleteTema = await Tema.destroy({ where: {
             id: request.params.id
-            } 
+            }
         })
 
         response.status(200).send("Tema excluído com sucesso")

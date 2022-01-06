@@ -6,16 +6,27 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'cascade'
+        
       },
+      
       nome: {
         allowNull: false,
         type: Sequelize.STRING(100)
       },
-      media_type: {
-        allowNull: false,
-        type: Sequelize.STRING(255)
+      id_Streaming: {
+      allowNull: false,
+      type: Sequelize.STRING(255)
+    },
+      small_description: {
+      allowNull: false,
+      type: Sequelize.STRING(255)
       },
+      time_duration: {
+      allowNull: false,
+      type: Sequelize.STRING(100)
+       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

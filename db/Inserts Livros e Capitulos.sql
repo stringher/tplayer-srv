@@ -1,15 +1,69 @@
-CREATE DATABASE rota66teste;
-USE rota66teste;
-DROP DATABASE rota66teste;
+CREATE DATABASE rota;
+USE rota;
+DROP DATABASE rota;
 
+/*----------------OBSERVAÇÕES IMPORTANTES-------------------*/
+
+/*Essa linha permite desativar o Safe Mode, para que seja possível executar o Update*/
+SET SQL_SAFE_UPDATES = 0;
+
+
+/*Alters dos Campos Nulos*/
 
 ALTER TABLE Livros modify createdAt datetime DEFAULT NULL;
 ALTER TABLE Livros modify updatedAt datetime DEFAULT NULL;
 ALTER TABLE Capitulos modify createdAt datetime DEFAULT NULL;
 ALTER TABLE Capitulos modify updatedAt datetime DEFAULT NULL;
+ALTER TABLE Tema modify createdAt datetime DEFAULT NULL;
+ALTER TABLE Tema modify updatedAt datetime DEFAULT NULL;
+ALTER TABLE Midia modify createdAt datetime DEFAULT NULL;
+ALTER TABLE Midia modify updatedAt datetime DEFAULT NULL;
 
+
+/*Inserts da Tabela Tema, apenas para teste*/
+INSERT INTO Tema (nome, descricao)
+VALUES ("Casamento", "casamento ...");
+INSERT INTO Tema (nome, descricao)
+VALUES ("Familia", "familia ...");
+INSERT INTO Tema (nome, descricao)
+VALUES ("Natal", "natal ...");
+INSERT INTO Tema (nome, descricao)
+VALUES ("Alegria", "alegria ...");
+
+
+/*Update da Tabela Livro no Campo Testamento*/
+
+UPDATE Livros
+SET cod_testamento = 1
+WHERE testamento = 'Antigo Testamento';
+
+UPDATE Livros
+SET cod_testamento = 2
+WHERE testamento = 'Novo Testamento';
+
+/*Selects das Tabelas do Banco*/
+SELECT * FROM Administradores;
 SELECT * FROM Capitulos;
+SELECT * FROM Favoritos;
 SELECT * FROM Livros;
+SELECT * FROM LogonsSociais;
+SELECT * FROM Midia;
+SELECT * FROM midia_capitulos;
+SELECT * FROM MidiaTemas;
+SELECT * FROM PlaylistItens;
+SELECT * FROM Playlists;
+SELECT * FROM SequelizeMeta;
+SELECT * FROM Tema;
+SELECT * FROM TituloDestaqueItems;
+SELECT * FROM TitulosDestaque;
+SELECT * FROM Usuarios;
+
+
+
+/*Inserts da Tabela Midia*/
+INSERT INTO Midia (nome, id_Streaming, small_description)
+VALUES ("nome", "id_Streaming","small_description");
+
 
 
 /*Inserts Livros Antigo Testamento*/

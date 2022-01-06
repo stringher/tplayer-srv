@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     nome_livro: DataTypes.STRING,
-    testamento: DataTypes.STRING
+    testamento: DataTypes.STRING,
+    cod_testamento: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Livros',

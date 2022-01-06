@@ -70,3 +70,4 @@ const deletePlaylistItem = async(request,response) => { // Deletar mídia de uma
 
 module.exports = { addMidiaPlaylist, getById, deletePlaylistItem }
 
+// test
