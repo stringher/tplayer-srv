@@ -574,25 +574,19 @@ router.get('/', livroCapituloController.getLivros)
 
 /**
  * @swagger
- * /livros/testamento/:
+ * /livros/testamento/{cod_testamento}:
  *   get:
  *     summary: Listagem de Livros por Testamento
  *     tags:
  *       - Livros, Capítulos e Mídias
  *     description: Listagem de Livros por Testamento (Antigo Testamento - 1 / Novo Testamento - 2)
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               cod_testamento:
- *                 type: integer
- *                 description: Código para Listar Livros do Antigo (1) ou Novo (2) Testamento
- *                 example: 2
+ *     parameters:
+ *       - in: path
+ *         name: cod_testamento
+ *         required: true
+ *         description: Código do testamento (Antigo Testamento - 1 / Novo Testamento - 2)
 */
-router.get('/testamento', livroCapituloController.getLivroByTestamento)
+router.get('/testamento/:cod_testamento', livroCapituloController.getLivroByTestamento)
 
 
 /**
