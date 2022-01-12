@@ -591,23 +591,17 @@ router.get('/testamento/:cod_testamento', livroCapituloController.getLivroByTest
 
 /**
  * @swagger
- * /midia/midia_capitulo/:
+ * /midia/midia_capitulo/{id_cap}:
  *   get:
  *     summary: Listagem de Mídias de um Capítulo
  *     tags:
  *       - Livros, Capítulos e Mídias
  *     description: Listagem de Mídias de um Capítulo
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               id_cap:
- *                 type: integer
- *                 description: ID do Capítulo que Deseja Listar as Mídias
- *                 example: 2
+ *     parameters:
+ *       - in: path
+ *         name: id_cap
+ *         required: true
+ *         description: ID do Capítulo que deseja buscar
 */
 router.get('/midia_capitulo', midiaController.getMidiaCap)
 
