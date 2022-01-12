@@ -57,7 +57,7 @@ const getLivroCapMidia = async (request,response) => {
 
 const getMidiaCap = async (request,response) => {
 
-    const { id_cap } = request.body
+    const { id_cap } = request.params
     
     try {
 
@@ -80,7 +80,7 @@ const getMidiaCap = async (request,response) => {
 
         if (midiasCap.length == 0) {
             return response.status(404).send("Nenhuma mídia encontrada")
-        } 
+        }
 
         return response.status(200).send(findMidias)
 

@@ -26,7 +26,7 @@ const getLivros = async (request,response) => {
 
 const getLivroByTestamento = async (request,response) => {
 
-    const { cod_testamento } = request.body
+    const { cod_testamento } = request.params
 
     try {
 

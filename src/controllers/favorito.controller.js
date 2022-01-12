@@ -30,7 +30,7 @@ const getByUserId = async (request,response) => { // Listagem das mídias favori
                         }
                     ]
         });
-
+        
         if (buscaFavorito == null) {
              response.status(404).json({ 
                 error: true, 

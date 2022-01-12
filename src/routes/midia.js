@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/', midiaController.uploadMidia)
 router.get('/livro_cap_midia', midiaController.getLivroCapMidia)
-router.get('/midia_capitulo', midiaController.getMidiaCap)
+router.get('/midia_capitulo/:id_cap', midiaController.getMidiaCap)
 router.delete('/', midiaController.deleteMidiaLivCap)
 router.get('/', midiaController.listagemMidias)
 router.get('/:id', midiaController.listagemMidiasById)
