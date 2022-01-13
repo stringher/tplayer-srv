@@ -23,16 +23,29 @@ const createTemaMidia = async (request,response) => { // Criação de um tema co
                 descricao
             })
 
-            const id_tema = gravaTema.id_tema
+            const id_tema = gravaTema.id_tema                       // pega o id do tema gravado
+            const qtdMidias = Object.keys(id_midia).length          // verifica quantas mídias vieram na requisição -> caso + de 1 faz for each
 
-            for(const ids of id_midia) {
+            if(qtdMidias > 1){
+    
+                for(const ids of id_midia) {
+                    const gravaMidiasTema = await MidiaTema.create({
+                        id_tema,
+                        id_midia: ids
+                    })
+                }
+                
+                response.status(201).send("Tema criado com sucesso")
+            } else {
+
                 const gravaMidiaTema = await MidiaTema.create({
                     id_tema,
-                    id_midia: ids
+                    id_midia
                 })
             }
-            
+
             response.status(201).send("Tema criado com sucesso")
+
     
         } catch (err) {
             response.status(500).send("Erro ao criar tema")
@@ -68,7 +81,7 @@ const getAll = async (request, response) => { // Listar todos os temas e suas m�
                 include: [
                     {
                         model: Midia,
-                        attributes: ['id_midia', 'nome', 'media_type'],
+                        attributes: ['id_midia', 'nome', 'id_Streaming', 'small_description', 'time_duration'],
                         through: {
                             attributes: [],
                         }

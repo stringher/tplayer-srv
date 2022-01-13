@@ -1,4 +1,4 @@
-const { administradores } = require('../models')
+const { Administradores } = require('../models')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -12,7 +12,7 @@ const cadastroAdm = async (request,response) => {
             response.status(400).send("Preencha todos os campos obrigatórios!")
         }
 
-        const checkExiste = await administradores.findOne({ where: {
+        const checkExiste = await Administradores.findOne({ where: {
             email: email
             } 
         })
@@ -23,7 +23,7 @@ const cadastroAdm = async (request,response) => {
 
         cryptSenha = await bcrypt.hash(senha, 10)
 
-        const novoUsuario = await administradores.create({
+        const novoUsuario = await Administradores.create({
             nome,
             email: email.toLowerCase(),
             senha: cryptSenha,
@@ -62,7 +62,7 @@ const loginAdm = async (request,response) => {
             response.status(400).send("Preencha todos os campos obrigatórios!")
         }
 
-        const usuario = await administradores.findOne({ where: {
+        const usuario = await Administradores.findOne({ where: {
             email: email
         }
      })
